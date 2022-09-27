@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taks 2</title>
+</head>
+<body style="background-color:blue">
+    <label for="uts">UTS     : <input type="number" id="uts"></label>
+    <br>
+    <label for="uas">UAS     : <input type="number" id="uas"></label>
+    <br>
+    <label for="tugas">TUGAS : <input type="number" id="tugas"></label>
+    <br>
+    <br>
+    <button onclick="hasil ()">Lihat Nilai Huruf</button>
+    <p>Nilai Huruf : <span id="nh"></span></p>
+
+    <br>
+    
+<script>
+    function hasil(){
+        let uts = document.getElementById("uts")
+        let uas = document.getElementById("uas")
+        let tugas = document.getElementById("tugas")
+        let nh = document.getElementById("nh")
+
+        let nilai_huruf
+        let hasil = (uts.value * 30 / 100) + (uas.value * 30 / 100) + (tugas.value * 40 / 100)
+
+        if (hasil >= 80) {
+            nilai_huruf = "A"
+        }
+        else if (hasil >= 70) {
+            nilai_huruf = "B"
+        }
+        else if (hasil >= 60) {
+            nilai_huruf = "C"
+        }
+        else if (hasil >= 40) {
+            nilai_huruf = "D"
+        }
+        else {
+            nilai_huruf = "E"
+        }
+        nh.innerHTML = nilai_huruf
+    }
+    
+</script>
+
+    <label>Berat Badan :</label>
+    <input type="number" id="bb"><br>
+    <label>Tinggi Badan :</label>
+    <input type="number" id="tb"><br>
+    <br>
+    <button onclick="submit()">Submit</button>
+
+    <p>BMI = <span id="bmi"></span></p>
+    <p>KATAGORI = <span id="kat"></span></p>
+
+    <script>
+        const submit = () => {
+            let bb = document.getElementById('bb');
+            let tb = document.getElementById('tb');
+            let bmi = document.getElementById('bmi');
+            let kat = document.getElementById('kat');
+
+            let KATAGORI
+            let hasil = bb.value / tb.value**2
+            console.log(hasil);
+            if (hasil < 15 ){
+                KATAGORI = "berat badan sangat kurang"
+            }
+            else if (hasil <= 18.49){
+                KATAGORI = "berat badan kurang (underweight)"
+            }
+            else if (hasil <= 23.99){
+                KATAGORI = "normal"
+            }
+            else if (hasil <= 29){
+                KATAGORI = "kelebihan berat badan (overweight)"
+            }
+            else{
+                KATAGORI = "obesitas"
+            }
+            bmi.innerHTML = hasil.toFixed(6)
+            kat.innerHTML = KATAGORI
+        }
+    </script>
+</body>
+</html>
